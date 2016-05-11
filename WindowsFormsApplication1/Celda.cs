@@ -29,7 +29,7 @@ namespace WindowsFormsApplication1
         {
 
             Graphics g = f.CreateGraphics();
-            g.DrawRectangle(new Pen(Color.Black, 1), x, y, lado, lado);
+            g.DrawRectangle(new Pen(Color.White, 1), x, y, lado, lado);
             if (estado_actual == Estado.viva)
                 g.FillRectangle(new SolidBrush(Color.Purple),x,y,lado,lado);
 
