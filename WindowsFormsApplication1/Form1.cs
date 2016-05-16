@@ -37,5 +37,15 @@ namespace WindowsFormsApplication1
         {
             t.Dibuja(this);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

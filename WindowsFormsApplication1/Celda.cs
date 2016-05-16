@@ -31,7 +31,7 @@ namespace WindowsFormsApplication1
             Graphics g = f.CreateGraphics();
             g.DrawRectangle(new Pen(Color.White, 1), x, y, lado, lado);
             if (estado_actual == Estado.viva)
-                g.FillRectangle(new SolidBrush(Color.Purple),x,y,lado,lado);
+                g.FillRectangle(new SolidBrush(Color.Green),x,y,lado,lado);
 
             
         }
@@ -42,8 +42,8 @@ namespace WindowsFormsApplication1
     }
 
     class Tablero
-    {
-        List<List<Celda>> tablero;
+    {        
+        List<List<Celda>> tablero;               
         int tamaño;
         Random r = new Random();
         public Tablero (int tamaño)
@@ -79,25 +79,25 @@ namespace WindowsFormsApplication1
                 for (int j = 0; j < tamaño; j++)
                 {
                     int vecinas = cuantas_vacinas_vivas(i,j);
-                    // Any live cell with fewer than two live neighbours dies, as if caused by under-population.
+                    // cualquier celula viva con menos de 2 celulas vivas vecinas muere, como cuando hay muy poca población en la vida real
                     if (vecinas < 2)
                         tablero[i][j].estado_siguiente = Celda.Estado.muerta;
-                    //Any live cell
+                    // cualquier celula viva
                     if ( tablero[i][j].estado_actual == Celda.Estado.viva)
                     {
-                       // with two or three live neighbours lives on to the next generation.
+                       // con dos o 3 vecinas vivas, vive en la sig generación
                         if (vecinas == 2 || vecinas == 3)
                         {
 
                         }
-                        // with more than three live neighbours dies 
+                        // con mas de 3 vecinas vivas muere 
                         else if (vecinas > 3)
                         {
                             tablero[i][j].estado_siguiente = Celda.Estado.muerta;
                         }     
                        
                     }
-                    //Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+                    // cualquier celula muerta con 3 vecinas vivas producen una viva, al igual que en la reprodución
                     else
                     {
                         if(vecinas == 3)
